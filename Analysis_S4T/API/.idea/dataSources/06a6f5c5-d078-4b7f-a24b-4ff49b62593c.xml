@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - track@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="track">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="awesome"/>
+    <schema id="3" name="fxtest"/>
+    <schema id="4" name="information_schema"/>
+    <schema id="5" name="mysql"/>
+    <schema id="6" name="performance_schema"/>
+    <schema id="7" name="student"/>
+    <schema id="8" name="test"/>
+    <table id="9" parent="1" name="target_rec"/>
+    <column id="10" parent="9" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>int(255)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="11" parent="9" name="Pin_ID">
+      <data-type>int(10)|0</data-type>
+    </column>
+    <column id="12" parent="9" name="Target_IP">
+      <data-type>varchar(765)|0</data-type>
+    </column>
+    <column id="13" parent="9" name="Target_ID">
+      <data-type>varchar(765)|0</data-type>
+    </column>
+    <column id="14" parent="9" name="Target_Access_DT">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="15" parent="9" name="Target_Web_live_long">
+      <data-type>int(10)|0</data-type>
+    </column>
+    <column id="16" parent="9" name="Target_Rec_DT">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="17" parent="9" name="Target_Signal">
+      <data-type>varchar(765)|0</data-type>
+    </column>
+    <key id="18" parent="9" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

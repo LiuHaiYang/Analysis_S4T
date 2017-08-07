@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据分析</title>
+    <script  src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script  src="{{ url_for('static', filename='js/highcharts.js') }}"></script>
+    <script  src="{{ url_for('static', filename='js/highcharts-more.js') }}"></script>
+    <script  src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+    <script  src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script  src="{{ url_for('static', filename='js/exporting.js') }}"></script>
+    <script  src="{{ url_for('static', filename='js/semantic.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/semantic.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/sementic.min.css') }}">
+    <script type="text/javascript">
+            $(function () {
+                $('')
+            })
+
+
+
+
+    </script>
+</head>
+<body>
+<div class="ui equal width grid" style="width:90%;margin: 5px 5px 5px 20px">
+        <div class="row">
+                <div class="column">
+                    <div class="ui black segment">
+                        <div class="ui statistic">
+                            <div class="value">
+                               <p>数据分析：</p>
+                                </div>
+                                <div class="xingqi" style="float:left;position: relative;left: 420px;top:-45px;">
+                            <select class="ui search dropdown" style="width: 200px">
+                                  <option value="">请选择终端...</option>
+
+                                        {% for k in title %}
+                                    <option >{{ k.MAK }}</option>
+                                        {% endfor %}
+
+
+                                </select>
+                             </div>
+                    </div>
+                </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="ui container segment">
+                    <div class="ui container " id="chart1"style="width:90%;margin: 5px 20px 5px 5px"></div>
+                </div>
+            </div>
+
+        </div>
+                </div></div>
+    </div>
+</body>
+
+</html>
+<script>
+$(function () {
+    $('#chart1').highcharts({
+
+        chart: {
+            type: 'bubble',
+            plotBorderWidth: 10,
+            zoomType: 'xy',
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        title: {
+            text: '终端轨迹'
+        },
+
+        xAxis: {
+            gridLineWidth: 5,
+            categories: ['','North', 'South', ' ','West', 'Middle', 'East',  'add'],
+{#            labels: {#}
+{#                format:[1,2,3,4]#}
+{#            },#}
+
+            plotLines: [{
+                color: 'black',
+                dashStyle: 'dot',
+                label: {
+                    rotation: 0,
+                    y: 25,
+                    style: {
+                        fontStyle: 'italic'
+                    },
+                },
+                zIndex: 3
+            }]
+        },
+        credits: {
+          enabled:false
+                },
+
+        yAxis: {
+            gridLineWidth: 5,
+            startOnTick: false,
+            endOnTick: false,
+            title: {
+                text: '第三教学楼'
+            },
+{#            labels: {#}
+{#                format: 'F{value}'#}
+{#            },#}
+            categories: ['','F1', 'F2', 'F3', 'F4', 'F5', ''],
+            maxPadding: 0.2,
+            plotLines: [{
+                color: 'red',
+                dashStyle: 'dot',
+                label: {
+                    align: 'right',
+                    style: {
+                        fontStyle: 'italic'
+                    },
+                    text: 'fffff',
+                    x: -10
+                },
+                zIndex: 3
+            }]
+        },
+        tooltip: {
+            useHTML: true,
+            headerFormat: '<table>',
+            pointFormat:
+                '<tr><td>连接{point.z}次</td></tr>',
+            footerFormat: '</table>',
+            followPointer: true
+        },
+
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+
+        series: [{
+            data: [
+                { y: 1, x: 1, z: {{ title[0].IP1 }}, name: '', country: '55' },
+                { y: 1, x: 2, z: {{ title[0].IP2 }}, name: '', country: '444' },
+                { y: 1, x: 4, z: {{ title[0].IP3 }}, name: '', country: '55' },
+                { y: 1, x: 5, z: {{ title[0].IP4 }}, name: '', country: '55' },
+                { y: 1, x: 6, z: {{ title[0].IP5 }}, name: '', country: '55' },
+                { y: 2, x: 1, z: {{ title[0].IP6 }}, name: '', country: '55' },
+                { y: 2, x: 2, z: {{ title[0].IP7 }}, name: '', country: '444' },
+                { y: 2, x: 4, z: {{ title[0].IP8 }}, name: '', country: '55' },
+                { y: 2, x: 5, z: {{ title[0].IP9 }}, name: '', country: '55' },
+                { y: 2, x: 6, z: {{ title[0].IP10 }}, name: '', country: '55' },
+                { y: 2, x: 7, z: {{ title[0].IP11 }}, name: '', country: '55' },
+                { y: 3, x: 4, z: {{ title[0].IP12 }}, name: '', country: '55' },
+                { y: 3, x: 5, z: {{ title[0].IP13 }}, name: '', country: '55' },
+                { y: 3, x: 6, z: {{ title[0].IP14 }}, name: '', country: '55' },
+                { y: 4, x: 4, z: {{ title[0].IP15 }}, name: '', country: '55' },
+                { y: 4, x: 5, z: {{ title[0].IP16 }}, name: '', country: '55' },
+                { y: 4, x: 6, z: {{ title[0].IP17 }}, name: '', country: '55' },
+                { y: 5, x: 4, z: {{ title[0].IP18 }}, name: '', country: '55' },
+                { y: 5, x: 5, z: {{ title[0].IP19 }}, name: '', country: '55' },
+                { y: 5, x: 6, z: {{ title[0].IP20 }}, name: '', country: '55' },
+            ]
+        }]
+
+    });
+});
+</script>
